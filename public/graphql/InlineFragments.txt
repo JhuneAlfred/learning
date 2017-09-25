@@ -1,0 +1,17 @@
+{
+  github {
+    repo(name: "react", ownerUsername: "facebook") {
+      commits {
+        message
+        author {
+          ... on GithubUser {
+            login
+          }
+          ... on GithubCommitAuthor {
+            email
+          }
+        }
+      }
+    }
+  }
+}

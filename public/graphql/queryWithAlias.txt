@@ -1,0 +1,29 @@
+query QueryUser($currentUserName1: String!, $currentUserName2: String!, $includeRepos: Boolean!) {
+  github {
+    user1: user(username: $currentUserName1) {
+      id
+      company
+      avatar_url
+      repos @include(if: $includeRepos) {
+        id
+        name
+      }
+    }
+    user2: user(username: $currentUserName2) {
+      id
+      company
+      avatar_url
+      repos @include(if: $includeRepos) {
+        id
+        name
+      }
+    }
+  }
+}
+
+#Query Variables
+{
+  "currentUserName1": "jhunealfred",
+  "currentUserName2": "alfredovel",
+  "includeRepos": true
+}

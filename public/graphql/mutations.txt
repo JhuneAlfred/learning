@@ -1,0 +1,14 @@
+mutation AddResource ($input: SetValueForKeyInput!) {
+  keyValue_setValue(input: $input) {
+        clientMutationId
+  }
+}
+
+#Query Variables
+{
+  "input": {
+    "id": "3",
+    "value": "3sdfds",
+    "clientMutationId": "3"
+  }
+}
