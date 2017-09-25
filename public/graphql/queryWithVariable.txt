@@ -27,6 +27,5 @@ query UserQuery($currentUserName: String!) {
 
 #Query Variables
 {
-  "currentUserName": "jhunealfred",
-	"repoName": "myreactapp"
+  "currentUserName": "jhunealfred"
 }
