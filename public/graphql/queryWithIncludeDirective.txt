@@ -1,0 +1,33 @@
+query ListOfCommitsByRepo($repoName: String!, $currentUserName: String!) {
+  github {
+    repo(name: $repoName ownerUsername: $currentUserName) {
+      commits {
+        message
+        date
+      }
+    }
+  }
+}
+
+query UserQuery($currentUserName: String!, $includeRepos: Boolean!) {
+  graphQLHub
+  github {
+    user(username: $currentUserName) {
+      id
+      company
+      avatar_url
+      repos @include(if: $includeRepos) {
+        id
+        name
+      }
+    }
+  }
+}
+
+
+#Query Variables
+{
+  "currentUserName": "jhunealfred",
+	"repoName": "myreactapp",
+  "includeRepos": true
+}

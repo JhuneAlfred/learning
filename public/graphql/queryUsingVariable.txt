@@ -1,0 +1,32 @@
+query ListOfCommitsByRepo($repoName: String!, $currentUserName: String!) {
+  github {
+    repo(name: $repoName ownerUsername: $currentUserName) {
+      commits {
+        message
+        date
+      }
+    }
+  }
+}
+
+query UserQuery($currentUserName: String!) {
+  graphQLHub
+  github {
+    user(username: $currentUserName) {
+      id
+      company
+      avatar_url
+      repos {
+        id
+        name
+      }
+    }
+  }
+}
+
+
+#Query Variables
+{
+  "currentUserName": "jhunealfred",
+	"repoName": "myreactapp"
+}
